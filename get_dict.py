@@ -1,6 +1,7 @@
-def get_list(filename):
+import csv
+import os
 
-    import csv
+def get_list(filename):
 
     list = []
     
@@ -14,8 +15,6 @@ def get_list(filename):
     return list
 
 def get_dict():
-
-    import os
 
     dict = {}
 
