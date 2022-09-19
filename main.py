@@ -1,7 +1,11 @@
+from operator import truediv
 import streamlit as st
 import numpy as np
 import pandas as pd
 import get_dict as gd
+import get_result_dic_list as gr
+
+show_flg = False
 
 japan = gd.get_dict()
 #st.write(japan["東京都"])
@@ -33,11 +37,29 @@ with col2:
         #tuple(dict[ken])
         tuple(japan[ken])
     )
-    #st.write('city: ', city)
+    
 
 with col3:
     if st.button('GO!'):
-        st.write('your choice : ', ken, city)
-    else:
-        st.write('push start')
+        #st.write('your choice : ', ken, city)
+        show_flg = True
+#    else:
+#        st.write('push start')
 
+if(show_flg):
+    input_dict = []
+    input_dict.append({
+            'prefecture':ken,
+            'city':city    
+    })
+
+    result_dic_list = gr.get_result_dict_list(input_dict)
+
+    df = pd.DataFrame(result_dic_list)
+
+    #st.write(df)
+
+    st.dataframe(df)
+
+
+    #st.write('city: ', city)
