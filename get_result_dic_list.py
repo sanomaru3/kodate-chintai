@@ -4,6 +4,7 @@ import pandas as pd
 import random
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 import sys
 from time import sleep
 import tool as tl
@@ -17,7 +18,8 @@ def get_result_dict_list(input_dic):
     # headlessモードで実行
     options.add_argument('--headless')
 
-    driver = webdriver.Chrome(options=options) 
+    #driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options) 
 
     exist_prefecture, exist_city = False, False
 

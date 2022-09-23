@@ -6,7 +6,7 @@ def get_list(filename):
     list = []
     
     # csv 読込み
-    csvfile = open(filename, 'r')
+    csvfile = open(filename, 'r', encoding="utf-8")
     datas = csv.reader(csvfile)
 
     for data in datas:
