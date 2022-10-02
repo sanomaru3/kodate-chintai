@@ -18,8 +18,8 @@ def get_result_dict_list(input_dic):
     # headlessモードで実行
     options.add_argument('--headless')
 
-    driver = webdriver.Chrome('./chromedriver.exe', options=options)
-    #driver = webdriver.Chrome(ChromeDriverManager().install(), options=options) 
+    #driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options) 
 
     exist_prefecture, exist_city = False, False
 
